@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h:dataTable var="valinta" value="${monivalinta}" >
+            
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="Kysymys kuului"/>
+                </f:facet>
+
+
+                <ui:repeat value="${valinta.kysymysLista}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+
+            </h:column>
+
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="Oikea vastaus oli"/>
+                </f:facet>
+                <ui:repeat value="${valinta.oikeaVastausLista}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+            </h:column>
+            
+            
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="Vastasit"/>
+                </f:facet>
+                <ui:repeat value="${valinta.actualVastausLista}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+            </h:column>
+            
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="Tulos"/>
+                </f:facet>
+                <ui:repeat value="${valinta.tarkista()}" var="k">
+                    <h:outputText value="${k}"/>
+                    <!--tää ei toimi-->
+                    <c:set var="vast" value="${k}"/>
+                    <c:if test="${vast.equals(true)}">
+                        <h:outputText value ="${k}"/>
+                    </c:if>
+                    <br></br>
+                </ui:repeat>
+            </h:column>
+            
+
+</h:dataTable>
+    </h:body>
+</html>
+

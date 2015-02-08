@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Monivalinta</title>
+    </h:head>
+    <h:body>
+        <h1>${monivalinta.nimi}</h1>
+
+        <h:dataTable var="valinta" value="#{monivalinta}" >
+            <h:column >
+                <f:facet name="header">
+                    <h:outputText value="?"/>
+                </f:facet>
+
+
+                <ui:repeat value="${valinta.kysymysLista}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+                
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="a"/>
+                </f:facet>
+                <ui:repeat value="${valinta.a}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="b"/>
+                </f:facet>
+                <ui:repeat value="${valinta.b}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="c"/>
+                </f:facet>
+                <ui:repeat value="${valinta.c}" var="k">
+                    <h:outputText value="${k}"/>
+                    <br></br>
+                </ui:repeat>
+
+            </h:column>
+            <h:column>
+                <h:form>
+                <f:facet name="header">
+                    <h:outputText value="Vastaus"/>
+                </f:facet>
+                <ui:repeat var="val" value="#{valinta.oikeaVastausLista}">
+                    <h:selectOneRadio value="#{valinta.vastaus}">
+
+                        <f:selectItem itemValue="a" itemLabel="a"/>
+                        <f:selectItem itemValue="b" itemLabel="b"/>
+                        <f:selectItem itemValue="c" itemLabel="c"/>
+
+                    </h:selectOneRadio>
+
+                </ui:repeat>
+                <h:commandButton value="Submit" action="tarkista" />
+                    </h:form>
+            </h:column>
+                    <h:column>
+                        
+                    </h:column>
+        </h:dataTable>
+    </h:body>
+
+</html>
+

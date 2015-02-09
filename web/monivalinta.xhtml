@@ -58,13 +58,13 @@
                     <h:outputText value="Vastaus"/>
                 </f:facet>
                 <ui:repeat var="val" value="#{valinta.oikeaVastausLista}">
-                    <h:selectOneRadio value="#{valinta.vastaus}">
+                    <h:selectOneMenu value="#{valinta.vastaus}">
 
                         <f:selectItem itemValue="a" itemLabel="a"/>
                         <f:selectItem itemValue="b" itemLabel="b"/>
                         <f:selectItem itemValue="c" itemLabel="c"/>
 
-                    </h:selectOneRadio>
+                    </h:selectOneMenu>
 
                 </ui:repeat>
                 <h:commandButton value="Submit" action="tarkista" />

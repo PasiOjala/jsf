@@ -9,11 +9,11 @@
     <h:body>
         Uusin palaute:
         <br></br>
-        <h:outputText value="${palautteet.kaikkiPalautteet
+        <h:outputText  value="${palautteet.kaikkiPalautteet
                                .get(palautteet.kaikkiPalautteet.size()-1).palauteTeksti}"/>
         <br></br>
         Kaikki palautteet:
-        <ui:repeat value="${palautteet.kaikkiPalautteet}" var="rivi">
+        <ui:repeat value="${palautteet.kaikkiPalautteet}" var="rivi" >
             <li>
                 <h:outputText value="${rivi.palauteTeksti}"/>
             </li>

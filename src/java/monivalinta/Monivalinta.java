@@ -185,5 +185,14 @@ public class Monivalinta implements Serializable{
         actualVastausLista=new ArrayList<>();
         return ret;
     }
-
+public static void main( String[] not_in_use ){
+    Monivalinta mv=new Monivalinta();
+    ArrayList <String> kl=mv.getKysymysLista();
+    for (String k:kl){
+        System.out.println(k);
+        
+        
+    }
+    
+}
 }
